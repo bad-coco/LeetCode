@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         int lowerBound = n,upperBound = n;
         int low = 0,high = n-1;
-
+    // Find lower bound
         while(low<=high)
         {
             int mid = low+(high-low)/2;
@@ -26,7 +26,7 @@ public:
             return {-1,-1};
         }
            low = 0,high = n-1;
-
+ // Find upper bound
          while(low<=high)
         {
             int mid = low+(high-low)/2;
@@ -43,7 +43,7 @@ public:
                 low = mid+1;
             }
         }
-
+        // return lower and upper bound
         return {lowerBound,upperBound};
 
     }
