@@ -1,36 +1,40 @@
 class Solution {
-    typedef pair<int,int> pint;
+    typedef pair<int,int> pint; 
+    // {count, number}
 public:
-// 1,1,1,2,2,3], k = 2
-// 1->3 
-// 2->2
-// 3->1
+
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        int n= nums.size();
+         vector<int> result;
+        priority_queue<pint> pq;
         unordered_map<int,int> mp;
-        priority_queue<pint, vector<pint>, greater<pint>> pq;
-        vector<int> result;
-        for(int i=0;i<n;i++)
+
+        for(int i=0;i<nums.size();i++)
         {
             mp[nums[i]]++;
         }
 
-          for(auto& item: mp)
+       for(auto item: mp)
+       {
+        int number = item.first;
+        int count = item.second;
+        // cout<< " number: "<<number<< ", count "<<count<<endl;
+        pq.push({count, number});
+        if(pq.size()>k)
         {
-            int element = item.first;
-            int freq = item.second;
-             pq.push({freq,element});
-            if(pq.size()>k)
-            {
-                pq.pop();
-            }
-           
-        }
-        while(pq.size())
-        {
-            result.push_back(pq.top().second);
+            cout<<" On Top Popping: "<<pq.top().first<<endl;;
             pq.pop();
         }
-        return result;
+       }
+
+       while(!pq.empty())
+       {
+        auto [number,count] = pq.top();
+        cout<< " number: "<<number<< ", count "<<count<<endl;
+        pq.pop();
+        result.push_back(number);
+       }
+       return result;
+
+        
     }
 };
