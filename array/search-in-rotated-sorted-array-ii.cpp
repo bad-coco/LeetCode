@@ -10,7 +10,7 @@ public:
             if(arr[mid]==target) return true;
 
             // duplicate value
-            if(arr[low] ==  arr[high] )
+            if(arr[low] == arr[mid] and arr[high]==arr[mid])
             {
                 low++;
                 high--;
