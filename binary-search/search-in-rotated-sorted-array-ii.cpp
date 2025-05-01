@@ -8,6 +8,16 @@ public:
         {
             int mid =low +(high-low)/2;
             if(arr[mid]==target) return true;
+
+            // duplicate value
+            if(arr[low] == arr[high])
+            {
+                low++;
+                high--;
+                continue;
+            }
+
+
             //left sorted
             if(arr[low]<arr[mid])
             {
