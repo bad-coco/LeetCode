@@ -6,27 +6,17 @@ public:
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (mid > 0 and mid < n - 1) {
-                if (nums[mid] > nums[mid - 1] and nums[mid] > nums[mid + 1]) {
-                    return mid;
-                }
-                if (nums[mid] >= nums[mid - 1]) {
-                    low = mid + 1;
+            int left = (mid > 0) ? nums[mid - 1] : INT_MIN;
+            int right = (mid < n - 1) ? nums[mid + 1] : INT_MIN;
 
-                } else {
-                    high = mid - 1;
-                }
-            } else if (mid == 0) {
-                if (nums[0] > nums[1])
-                    return 0;
-                else
-                    return 1;
-            } else if (mid == n - 1) {
-                if (nums[n - 1] > nums[n - 2]) {
-                    return n - 1;
-                } else {
-                    return n - 2;
-                }
+            if (nums[mid] > left and nums[mid] > right) {
+                return mid;
+            }
+            if (nums[mid] < right) {
+                low = mid + 1;
+
+            } else {
+                high = mid - 1;
             }
         }
         return -1;
