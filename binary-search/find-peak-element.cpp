@@ -9,7 +9,7 @@ public:
             int left = mid > 0 ? arr[mid - 1] : INT_MIN;
             int right = mid < n - 1 ? arr[mid + 1] : INT_MIN;
 
-            if (arr[mid] > left and arr[mid] > right) {
+            if (arr[mid] >= left and arr[mid] >= right) {
                 return mid;
             }
 
