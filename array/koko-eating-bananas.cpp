@@ -13,7 +13,8 @@ public:
     bool inHourRange(vector<int>& piles, int h, int n, int eatingSpeed) {
         int monkeyTotalHour = 0;
         for (int i = 0; i < n; i++) {
-            monkeyTotalHour+= ceil((double)piles[i] / (double)eatingSpeed);
+            monkeyTotalHour+= piles[i]/eatingSpeed + (piles[i] % eatingSpeed ? 1 : 0);
+             
             if(monkeyTotalHour>h)
             {
                 return false;
