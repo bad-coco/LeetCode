@@ -29,7 +29,7 @@ public:
 
     int minDays(vector<int>& bloomDay, int m, int k) {
         int n = bloomDay.size();
-        int ans = -1;
+        
         if ((long)m * k > n) {
             return -1;
         }
@@ -42,7 +42,7 @@ public:
             int mid = low + (high - low) / 2;
             int bouquetes = findBouquets(bloomDay, n, mid, m, k);
             if (bouquetes >= m) {
-                ans = mid;
+                
                 high = mid - 1;
             } else {
                 low = mid + 1;
