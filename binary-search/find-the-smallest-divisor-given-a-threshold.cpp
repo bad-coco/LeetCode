@@ -38,7 +38,7 @@ public:
 
             if (sum <= threshold) {
                 high = mid - 1;
-                ans = mid;
+               
             } else {
                 low = mid + 1;
             }
